@@ -1,4 +1,4 @@
-let images = [
+let images = shuffle([
 
     "Images_Memory/images avec fond/caca licorne.png",
     "Images_Memory/images avec fond/licorne folle.png",
@@ -17,7 +17,7 @@ let images = [
     "Images_Memory/images avec fond/licorne vomit wc.png",
     "Images_Memory/images avec fond/licorne vomito.png",
 
-];
+]);
 let pileDeCarte = [];
 
 window.onload = init;
@@ -25,6 +25,7 @@ window.onload = init;
 function init() {
     afficherTab();
     returnCard()
+
 }
 
 function afficherTab() {
@@ -63,9 +64,10 @@ function afficherTab() {
     }
 }
 
-function returnCard(card1, card2){
+function returnCard(card1, card2) {
     card1.src = "Images_Memory/images avec fond/reverse card unimemory.png";
     card2.src = "Images_Memory/images avec fond/reverse card unimemory.png";
+    pileDeCarte = [];
 }
 
 function flipCard(event) {
@@ -89,18 +91,31 @@ function flipCard(event) {
         // est ce que mes deux cartes sont identiques*/
         if (pileDeCarte[0].src == pileDeCarte[1].src) {
             pileDeCarte = []
-        
             console.log("GG, well play!");
 
         } else {
-            returnCard(pileDeCarte[0],pileDeCarte[1])
-            setTimeout(returnCard,5000,pileDeCarte[0],pileDeCarte[1]); 
-            pileDeCarte = []
+
+            setTimeout(returnCard, 500, pileDeCarte[0], pileDeCarte[1]);
             console.log("Mdr t'es nul(le)");
         }
 
     }
-
-    
 }
 
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
