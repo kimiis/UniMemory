@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscription</title>
+    <link rel="stylesheet" href="inscription.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Noto+Sans+JP:wght@100;300&family=Poiret+One&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    
+    <main>
+        <div class=»curseur> </div>
+        
+        <section class=menuP>
+            <nav>
+                <ul id="menu">
+                    <li><a href="ENI-Memory.html">Accueil</a></li>
+    
+                    <li><a href="inscription.html">
+                            S'inscrire</a></li>
+    
+                    <li><a href="login.html">
+                            Se connecter
+                        </a></li>
+                    <li><a href="profil.html">Profil</a></li>
+    
+                    <li><a href="play.html">
+                            Jouer
+                        </a></li>
+    
+                </ul>
+            </nav>
+        </section>
+    
+        <div class="card">
+    
+            <form>
+                <legend>Formulaire d'adhésion à Unimemory</legend><br><br>
+                <!-- La balise Table pour formater l'affichage du formulaire -->
+    
+                <label>Nom :</label><br>
+                <input type="text" placeholder="saisie ton nom de licorne" required><br><br>
+                <label>Prénom :</label><br>
+                <input type="text" placeholder="saisie ton prénom de licorne" required><br><br>
+    
+                <label>Mail :</label><br>
+                <input type="email" required><br><br>
+    
+                <label>Mot de passe (6 characters minimum):</label>
+                <input type="password" pattern="(?=.*\d)(?=.*[\!@#$%\^&*_=+\-])(?=.*[a-z])(?=.*[A-Z]).{6,}"title="Doit contenir au moins 1 chiffre 1 Majuscule, 1 Minuscule, 1 caractères spéciales et 6 caractères" required>
+                <br><br>
+                <input class="form-submit-button"type="submit" value="Envoyer le formulaire">
+    
+            </form>
+        </div>
+    </main>
+   
+
+</body>
+
+</html>
