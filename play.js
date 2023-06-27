@@ -24,6 +24,7 @@ window.onload = init;
 
 function init() {
     afficherTab();
+    returnCard()
 }
 
 function afficherTab() {
@@ -61,9 +62,15 @@ function afficherTab() {
 
     }
 }
+
+function returnCard(card1, card2){
+    card1.src = "Images_Memory/images avec fond/reverse card unimemory.png";
+    card2.src = "Images_Memory/images avec fond/reverse card unimemory.png";
+}
+
 function flipCard(event) {
     // si on a deja 2 cartes de retournés on n'autorise pas de clique*/
-    if(pileDeCarte.length == 2){
+    if (pileDeCarte.length == 2) {
         return;
     }
     //console.log(event)
@@ -81,13 +88,19 @@ function flipCard(event) {
     if (pileDeCarte.length == 2) {
         // est ce que mes deux cartes sont identiques*/
         if (pileDeCarte[0].src == pileDeCarte[1].src) {
-            
-            console.log("bingo");
+            pileDeCarte = []
+        
+            console.log("GG, well play!");
 
         } else {
-            console.log("mdr t'es nul");
-        } 
+            returnCard(pileDeCarte[0],pileDeCarte[1])
+            setTimeout(returnCard,5000,pileDeCarte[0],pileDeCarte[1]); 
+            pileDeCarte = []
+            console.log("Mdr t'es nul(le)");
+        }
 
     }
+
+    
 }
 
