@@ -18,19 +18,19 @@ let images = shuffle([
     "Images_Memory/images avec fond/licorne vomito.png",
 
 ]);
+let totalCard = images.length
 let pileDeCarte = [];
+let compteurDeCoup = 0
 
 window.onload = init;
 
 function init() {
     afficherTab();
-    returnCard()
-
+    document.addEventListener("keypress", restartGame);
 }
 
 function afficherTab() {
     //je récupère et je vide le tab*/
-
     let plateau = document.getElementById("plateau");
     plateau.innerHTML = "";
 
@@ -47,59 +47,80 @@ function afficherTab() {
             let img_elem = document.createElement("img");
             img_elem.src = "Images_Memory/images avec fond/reverse card unimemory.png";
             img_elem.alt = "image face cachée arc en ciel avec ecrit uniMemory"
-            img_elem.classList.add("memory-image", "playable"); // a modifier en css*/
+            img_elem.classList.add("memory-image"); // a modifier en css*/
             img_elem.id = i * 4 + j;
+
             //j'add un event quand je click sur img
             img_elem.addEventListener("click", flipCard);
 
             //chaque img doit etre affecter au td correspondant*/
             td_elem.appendChild(img_elem);
-            // je prend un tr auquel j'add un enfant*/
 
+            // je prend un tr auquel j'add un enfant*/
             tr_elem.appendChild(td_elem);
         }
         // j'add le tr a mon plateau*/
         plateau.appendChild(tr_elem);
 
     }
+    compteurDeCoup = 0
+    let AfficheurDeCoup = document.getElementById("compteur");
+    AfficheurDeCoup.innerHTML = compteurDeCoup;
 }
 
 function returnCard(card1, card2) {
     card1.src = "Images_Memory/images avec fond/reverse card unimemory.png";
     card2.src = "Images_Memory/images avec fond/reverse card unimemory.png";
     pileDeCarte = [];
+    card1.classList.remove("find");
+    card2.classList.remove("find")
 }
 
 function flipCard(event) {
+    if (event.srcElement.classList.contains("find")) {
+        return
+    }
     // si on a deja 2 cartes de retournés on n'autorise pas de clique*/
     if (pileDeCarte.length == 2) {
         return;
     }
     //console.log(event)
-
+    event.srcElement.classList.add("find")
     // on recup l'id de l'img dans laquelle je viens de cliquer*/
     let index = event.srcElement.id;
 
-    // on change la source d el'img (retourner la carte)
+    // on change la source de l'img (retourner la carte)
     event.srcElement.src = images[index];
 
     //garde en mémoire la carte sur laquelle le joueur à cliqué
     pileDeCarte.push(event.srcElement);
 
+
     //si j'ai 2 carte retournées*/
     if (pileDeCarte.length == 2) {
+        compteurDeCoup += 1
+        let AfficheurDeCoup = document.getElementById("compteur");
+        AfficheurDeCoup.innerHTML = compteurDeCoup;
+
         // est ce que mes deux cartes sont identiques*/
         if (pileDeCarte[0].src == pileDeCarte[1].src) {
-            pileDeCarte = []
+            pileDeCarte = [];
+            totalCard = totalCard - 2;
             console.log("GG, well play!");
+            console.log(totalCard);
+
+            if (totalCard == 0) {
+
+                window.alert("Yay c'est fini")
+            }
 
         } else {
 
             setTimeout(returnCard, 500, pileDeCarte[0], pileDeCarte[1]);
             console.log("Mdr t'es nul(le)");
         }
-
     }
+
 }
 
 function shuffle(array) {
@@ -116,6 +137,12 @@ function shuffle(array) {
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex], array[currentIndex]];
     }
-
     return array;
 }
+function restartGame(event) {
+
+    if (event.code == "Space") {
+        document.location.reload(true);
+    }
+};
+

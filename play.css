@@ -21,6 +21,7 @@ li {
     position: relative;
     cursor: pointer;
     white-space: nowrap;
+    font-family: 'Poiret One', cursive;
 
     &:before {
         content: " ";
@@ -63,140 +64,39 @@ h1 {
 }
 
 .memory-image {
-    width: 11rem;
+    
+    width: 9rem;
     border-radius: 2rem;
     box-shadow: 0px 3px 20px 0px rgb(202, 16, 131);
-    transition: all 0.3s ease;
     margin: 1rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: lighter;
-    letter-spacing: 2px;
     transition: 1s box-shadow;
-
-
-    .memory-image:hover {
-        box-shadow: 0 5px 35px 0px rgba(0, 0, 0, .1);
-    }
-
-    div:hover::before,
-    div:hover::after {
-        display: block;
-        content: '';
-        position: absolute;
-        width: 250px;
-        height: 250px;
-        background: #FDA8CF;
-        border-radius: 75px;
-        z-index: -1;
-        animation: 1s clockwise infinite;
-    }
-
-    div:hover:after {
-        background: #F3CE5E;
-        animation: 2s counterclockwise infinite;
-    }
-
-    @keyframes clockwise {
-        0% {
-            top: -5px;
-            left: 0;
-        }
-
-        12% {
-            top: -2px;
-            left: 2px;
-        }
-
-        25% {
-            top: 0;
-            left: 5px;
-        }
-
-        37% {
-            top: 2px;
-            left: 2px;
-        }
-
-        50% {
-            top: 5px;
-            left: 0;
-        }
-
-        62% {
-            top: 2px;
-            left: -2px;
-        }
-
-        75% {
-            top: 0;
-            left: -5px;
-        }
-
-        87% {
-            top: -2px;
-            left: -2px;
-        }
-
-        100% {
-            top: -5px;
-            left: 0;
-        }
-    }
-
-    @keyframes counterclockwise {
-        0% {
-            top: -5px;
-            right: 0;
-        }
-
-        12% {
-            top: -2px;
-            right: 2px;
-        }
-
-        25% {
-            top: 0;
-            right: 5px;
-        }
-
-        37% {
-            top: 2px;
-            right: 2px;
-        }
-
-        50% {
-            top: 5px;
-            right: 0;
-        }
-
-        62% {
-            top: 2px;
-            right: -2px;
-        }
-
-        75% {
-            top: 0;
-            right: -5px;
-        }
-
-        87% {
-            top: -2px;
-            right: -2px;
-        }
-
-        100% {
-            top: -5px;
-            right: 0;
-        }
-    }
-
+    transition: all 0.5s ease;
 }
 
+.memory-image-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
 }
+
+:hover .memory-image-inner {
+    transform: rotateY(180deg);
+}
+
+.memory-image-front, .memory-image-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.memory-image-back {
+        transform: rotateY(180deg);
+    }
