@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="profil.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Noto+Sans+JP:wght@100;300&family=Poiret+One&display=swap"
         rel="stylesheet">
 </head>
 
-<body id="body">
-    <script src="login.js"></script>
+<body>
+    <script src="profil.js"></script>
     <main>
         <div class=»curseur> </div>
 
@@ -39,26 +39,33 @@
 
         <div class="card">
 
-            <form id="logForm">
-                <legend>Login</legend><br><br>
-                <!-- La balise Table pour formater l'affichage du formulaire -->
-                <div>
-                    <label>Mail :</label><br>
-                    <input type="text" id="mail"><br><br>
-                </div>
+            <legend>Profil</legend><br><br>
 
-                <div>
-                    <label>Mot de passe :</label><br>
-                    <input type="password" id="pw"><br><br>
-                </div>
+            <div>
+                <label>User:</label><br>
+                <input type="text" id="username" readonly><br><br>
+            </div>
 
-                <div>
-                    <input id="connecter" class="form-button" type="button" value="login" >
-                </div>
+            <div>
+                <label>Mail :</label><br>
+                <input type="email" id="mail" readonly><br><br>
+            </div>
 
-
-            </form>
         </div>
+        <table id="tableauScore">
+            <tr>
+                <th>Score</th>
+                <th>Tant</th>
+            </tr>
+        </table>
+        <select name="chooseMemory" id="choiceMemory" onchange="saveConfig(this)">
+            <option value="" disabled selected>Choose your memory</option> 
+            <option value="4x4">4x4</option>
+            <option value="6x6">6x6</option>
+            <option value="8x8">8x8</option>
+            <option value="10x10">10x10</option>
+
+        </select>
     </main>
 
 

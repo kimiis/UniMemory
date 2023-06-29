@@ -21,15 +21,16 @@ let images = shuffle([
 let totalCard = images.length
 let pileDeCarte = [];
 let compteurDeCoup = 0
-
+console.log(localStorage.getItem("config"));
 window.onload = init;
-
+let chrono 
 function init() {
     afficherTab();
     document.addEventListener("keypress", restartGame);
 }
 
 function afficherTab() {
+    chrono = 0
     //je récupère et je vide le tab*/
     let plateau = document.getElementById("plateau");
     plateau.innerHTML = "";
@@ -66,6 +67,11 @@ function afficherTab() {
     compteurDeCoup = 0
     let AfficheurDeCoup = document.getElementById("compteur");
     AfficheurDeCoup.innerHTML = compteurDeCoup;
+
+    setInterval(() => {
+        document.getElementById("timer").innerHTML = chrono
+        chrono += 1
+    }, 1000);
 }
 
 function returnCard(card1, card2) {
@@ -110,7 +116,8 @@ function flipCard(event) {
             console.log(totalCard);
 
             if (totalCard == 0) {
-
+                localStorage.setItem("scores", localStorage.getItem("scores") + ";" +  compteurDeCoup)
+                localStorage.setItem("temps", localStorage.getItem("temps") + ";" +  chrono)
                 window.alert("Yay c'est fini")
             }
 

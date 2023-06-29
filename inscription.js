@@ -5,7 +5,7 @@ let indicateur_moyen;
 let indicateur_fort;
 
 
-
+let loginForm
 onload = init;
 
 //fonction lancée une fois que la page est chargée*/
@@ -24,8 +24,36 @@ function init() {
   inputs.mail.addEventListener("input", verifierMail);
   inputs.mdpInfo.addEventListener("input", verifierMdp);
 
-  let loginForm = document.getElementById("subForm");
+  loginForm = document.getElementById("subForm");
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let username = document.getElementById("user");
+    let mail = document.getElementById("mail");
+    let password = document.getElementById("mdpInfo");
+
+    if (username.value == "" || password.value == "") {
+      alert("Ensure you input a value in both fields!");
+    } else {
+      // perform operation with form input
+      alert("This form has been successfully submitted!");
+      console.log(
+        `This form has a username of ${username.value} and password of ${password.value}`
+      );
+      localStorage.setItem("username", username.value)
+      localStorage.setItem("mail", mail.value)
+      localStorage.setItem("password", password.value)
+      localStorage.setItem("scores", "")
+      localStorage.setItem("temps", "")
   
+      username.value = "";
+      password.value = "";
+      mail.value = "";
+      document.location.href = "./login.html"
+    }
+  });
+
+
 }
 
 function verifierUtlisateur() {
@@ -56,7 +84,7 @@ function verifierMdp() {
   let nombreOK = /[\d]/.test(inputs.mdpInfo.value);
 
   // Vérification des contraintes de mdp fort
-  if (inputs.mdpInfo.value.length > 9
+  if (inputs.mdpInfo.value.length >= 6
     && symboleOK
     && nombreOK) {
     indicateur_faible.style.opacity = "100%";
@@ -76,37 +104,7 @@ function verifierMdp() {
   }
 }
 
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  let username = document.getElementById("user");
-  let password = document.getElementById("mdpInfo");
-
-  if (username.value == "" || password.value == "") {
-    alert("Ensure you input a value in both fields!");
-  } else {
-    // perform operation with form input
-    alert("This form has been successfully submitted!");
-    console.log(
-      `This form has a username of ${username.value} and password of ${password.value}`
-    );
-
-    username.value = "";
-    password.value = "";
-  }
-});
 
 
 
-
-
-  localStorage.setItem("infoUtilisateur", {
-
-    user: user,
-
-    mail: mail,
-
-    mdpInfo: mdpInfo
-
-  })
 
