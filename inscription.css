@@ -1,6 +1,6 @@
-
 body {
     background-image: url(Images_Memory/fond.jpg);
+    margin-top: 2rem;
 }
 
 #menu li {
@@ -11,6 +11,7 @@ body {
     padding: 0 7rem;
     margin: 0.5rem;
     font-family: 'Poiret One', cursive;
+    align-items: center;
 
 }
 
@@ -45,96 +46,109 @@ li {
 
 main section a {
     color: #000000;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-decoration: none;
-    justify-content: center;
-
 }
 
-.card {
+div{
+  text-align: center;
+}
 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 80rem;
-    grid-column: 1;
-    margin: auto;
+form {
+    
     font-family: 'Poiret One', cursive;
     font-size: 2rem;
-
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-form{
-    background-color: aliceblue;
-    width: auto;
-    font-family: 'Poiret One', cursive;
-    padding: 2rem;
-    border-radius: 2rem;
+form legend {
     font-size: 2rem;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    margin-left: 44rem;
    
 }
-form legend{
-    font-size: 2rem;
-    font-family: 'Poiret One', cursive;
+
+input {
+    visibility:initial;
+    border: #e782a7;
     text-align: center;
- 
-}
-input{ 
     font-size: 1.5rem;
     font-family: 'Poiret One', cursive;
     font-weight: bold;
     width: 30rem;
-    background-color:#F8E8EE
-
-}
-.card {
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 50rem;
-    grid-column: 1;
-    margin: auto;
-    font-family: 'Poiret One', cursive;
-    border-radius: 2rem;
-
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f8e4eb
+   
 }
 .form-submit-button {
-	background: #F8E8EE;
-	color: black;
-	border: 1px solid #eee;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #eee;
-	text-shadow: none;
+    background: #e782a7;
+    color: black;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
-   margin-left: 8rem
-    
 }
 
 .form-submit-button:hover {
-	background: #FDCEDF;
-	color: #fff;
-	border: 1px solid #eee;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #eee;
-	text-shadow: none;
+    background: #FDCEDF;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+}
+
+.form__field {
+
+  border: 0;
+  border-bottom: 1px solid; 
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+ p{
+    font-size: 1rem;
+ }
+
+ .indicateur {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.indicateur>div {
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    opacity: 0%;
+    transition: all .3s;
+}
+
+.faible {
+    border-top: solid 5px red;
+    font-size: 1rem;
+
+}
+.moyen {
+    border-top: solid 5px yellow;
+    font-size: 1rem;
+}
+
+.fort {
+    border-top: solid 5px green;
+    font-size: 1rem;
 }

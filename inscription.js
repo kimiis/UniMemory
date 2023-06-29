@@ -1,62 +1,112 @@
-function checkPasswordStrength(password) {
-    // Initialize variables
-    var strength = 0;
-    var tips = "";
-  
-    // Check password length
-    if (password.length < 8) {
-      tips += "Make the password longer. ";
-    } else {
-      strength += 1;
-    }
-  
-    // Check for mixed case
-    if (password.match(/[a-z]/) && password.match(/[A-Z]/)) {
-      strength += 1;
-    } else {
-      tips += "Use both lowercase and uppercase letters. ";
-    }
-  
-    // Check for numbers
-    if (password.match(/\d/)) {
-      strength += 1;
-    } else {
-      tips += "Include at least one number. ";
-    }
-  
-    // Check for special characters
-    if (password.match(/[^a-zA-Z\d]/)) {
-      strength += 1;
-    } else {
-      tips += "Include at least one special character. ";
-    }
-  
-    // Return results
-    if (strength < 2) {
-      return "Easy to guess. " + tips;
-    } else if (strength === 2) {
-      return "Medium difficulty. " + tips;
-    } else if (strength === 3) {
-      return "Difficult. " + tips;
-    } else {
-      return "Extremely difficult. " + tips;
-    }
-  }
+let inputs;
+let infos;
+let indicateur_faible;
+let indicateur_moyen;
+let indicateur_fort;
 
-  // Get the paragraph element
-  var strengthElement = document.getElementById("passwordStrength");
 
-  // Return results
-  if (strength < 2) {
-    strengthElement.textContent = "Easy to guess. " + tips;
-    strengthElement.style.color = "red";
-  } else if (strength === 2) {
-    strengthElement.textContent = "Medium difficulty. " + tips;
-    strengthElement.style.color = "orange";
-  } else if (strength === 3) {
-    strengthElement.textContent = "Difficult. " + tips;
-    strengthElement.style.color = "black";
+
+onload = init;
+
+//fonction lancée une fois que la page est chargée*/
+function init() {
+  // // récup de tous les inputs d'incription
+  inputs = document.getElementsByTagName("input");
+
+  //recup de tous les txt qui passeront en rouge si erreur 
+  infos = document.getElementsByTagName("p");
+
+  indicateur_faible = document.getElementById("faible");
+  indicateur_moyen = document.getElementById("moyen");
+  indicateur_fort = document.getElementById("fort");
+
+  inputs.user.addEventListener("input", verifierUtlisateur);
+  inputs.mail.addEventListener("input", verifierMail);
+  inputs.mdpInfo.addEventListener("input", verifierMdp);
+
+  let loginForm = document.getElementById("subForm");
+  
+}
+
+function verifierUtlisateur() {
+  //dans l'input "user", j'accede a ce qui a été tapé dedans
+  if (inputs.user.value.length < 3) {
+    infos.userInfo.style.color = "red";
   } else {
-    strengthElement.textContent = "Extremely difficult. " + tips;
-    strengthElement.style.color = "green";
+    infos.userInfo.style.color = "black";
   }
+}
+function verifierMail() {
+
+  if (/^[\w-\.]+([\w-]+\.)+[\w-]{2,}$/.test(inputs.mail.value)) {
+    infos.mailU.style.color = "black";
+  } else {
+    infos.mailU.style.color = "red";
+  }
+}
+function verifierMdp() {
+
+  if (/^((?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*[#?!@$%^&*-])).{6,}$/.test(inputs.mdpInfo.value)) {
+    infos.mdpI.style.color = "black";
+  } else {
+    infos.mdpI.style.color = "red";
+  }
+  // Vérification du niveau de sécurité du mot de passe
+  let symboleOK = /[#?!@$%^&*-]/.test(inputs.mdpInfo.value);
+  let nombreOK = /[\d]/.test(inputs.mdpInfo.value);
+
+  // Vérification des contraintes de mdp fort
+  if (inputs.mdpInfo.value.length > 9
+    && symboleOK
+    && nombreOK) {
+    indicateur_faible.style.opacity = "100%";
+    indicateur_moyen.style.opacity = "100%";
+    indicateur_fort.style.opacity = "100%";
+  }
+  // Vérification des contraintes de mdp moyen
+  else if (inputs.mdpInfo.value.length > 6
+    && (symboleOK || nombreOK)) {
+    indicateur_faible.style.opacity = "100%";
+    indicateur_moyen.style.opacity = "100%";
+    indicateur_fort.style.opacity = "0%";
+  } else {
+    indicateur_faible.style.opacity = "100%";
+    indicateur_moyen.style.opacity = "0%";
+    indicateur_fort.style.opacity = "0%";
+  }
+}
+
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let username = document.getElementById("user");
+  let password = document.getElementById("mdpInfo");
+
+  if (username.value == "" || password.value == "") {
+    alert("Ensure you input a value in both fields!");
+  } else {
+    // perform operation with form input
+    alert("This form has been successfully submitted!");
+    console.log(
+      `This form has a username of ${username.value} and password of ${password.value}`
+    );
+
+    username.value = "";
+    password.value = "";
+  }
+});
+
+
+
+
+
+  localStorage.setItem("infoUtilisateur", {
+
+    user: user,
+
+    mail: mail,
+
+    mdpInfo: mdpInfo
+
+  })
+

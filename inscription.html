@@ -15,51 +15,68 @@
     <script src="inscription.js"></script>
     <main>
         <div class=»curseur> </div>
-        
+
         <section class=menuP>
             <nav>
                 <ul id="menu">
                     <li><a href="ENI-Memory.html">Accueil</a></li>
-    
+
                     <li><a href="inscription.html">
                             S'inscrire</a></li>
-    
+
                     <li><a href="login.html">
                             Se connecter
                         </a></li>
                     <li><a href="profil.html">Profil</a></li>
-    
+
                     <li><a href="play.html">
                             Jouer
                         </a></li>
-    
+
                 </ul>
             </nav>
         </section>
-    
+
         <div class="card">
-    
-            <form>
-                <legend>Formulaire d'adhésion à Unimemory</legend><br><br>
+
+            <form id="subForm">
+                <br>
+                <legend>Formulaire d'adhésion à Unimemory</legend><br>
                 <!-- La balise Table pour formater l'affichage du formulaire -->
-    
-                <label>Nom :</label><br>
-                <input type="text" placeholder="saisie ton nom de licorne" required><br><br>
-                <label>Prénom :</label><br>
-                <input type="text" placeholder="saisie ton prénom de licorne" required><br><br>
-    
-                <label>Mail :</label><br>
-                <input type="email" required><br><br>
-    
-                <label>Mot de passe (6 characters minimum):</label>
-                <input type="password" pattern="(?=.*\d)(?=.*[\!@#$%\^&*_=+\-])(?=.*[a-z])(?=.*[A-Z]).{6,}"title="Doit contenir au moins 1 chiffre 1 Majuscule, 1 Minuscule, 1 caractères spéciales et 6 caractères" required>
-                <br><br>
-                <input class="form-submit-button"type="submit" value="Envoyer le formulaire">
-    
+
+                <div>
+                    <label for="name" class="form__label">Pseudo de licorne:</label><br>
+                    <input id="user" type="text" class="form__field" required />
+                    <p id="userInfo">Doit faire au moins 3 caractères</p>
+                </div>
+
+                <div>
+                    <label for="mail" class="form__label"> Mail de la licorne:</label><br>
+                    <input id="mail" type="email" class="form__field" required />
+                    <p id="mailU"> Il doit être valide ! </p>
+                </div>
+
+                <div>
+                    <label for="pw" class="form__label">Mot de passe super licorne</label><br>
+                    <input id="mdpInfo" type="password" class="form__field">
+                    <p id=mdpI> Doit contenir au moins : <br>
+                        - 6 caractères <br>
+                        - 1 Majuscule <br>
+                        - 1 Minuscule <br>
+                        - 1 caractère spécial </p>
+                    <div class="indicateur">
+                        <div class="faible" id="faible">Faible</div>
+                        <div class="moyen" id="moyen">Moyen</div>
+                        <div class="fort" id="fort">Fort</div>
+                    </div>
+                </div>
+
+                <input id= "sub"class="form-submit-button" type="submit" value="Envoyer le formulaire">
+
             </form>
         </div>
     </main>
-   
+
 
 </body>
 
