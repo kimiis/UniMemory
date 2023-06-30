@@ -1,6 +1,7 @@
-
 body {
-    background-image: url(Images_Memory/fond.jpg);
+    background-image: 
+    url(Images_Memory/Unicornland.png);
+    background-position: no-repeat;
 }
 
 #menu li {
@@ -51,90 +52,106 @@ main section a {
 
 }
 
-.card {
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 80rem;
-    grid-column: 1;
-    margin: auto;
-    font-family: 'Poiret One', cursive;
-    font-size: 2rem;
-
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-form{
+form {
     background-color: aliceblue;
     width: auto;
     font-family: 'Poiret One', cursive;
     padding: 2rem;
     border-radius: 2rem;
     font-size: 2rem;
-   
+    font-weight: bold;
+
 }
-form legend{
+
+form legend {
     font-size: 2rem;
     font-family: 'Poiret One', cursive;
     text-align: center;
- 
+    font-weight: bold;
 }
-input{ 
+
+input {
     font-size: 1.5rem;
     font-family: 'Poiret One', cursive;
     font-weight: bold;
     width: 30rem;
-    background-color:#F8E8EE
-
-}
-.card {
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 50rem;
-    grid-column: 1;
-    margin: auto;
-    font-family: 'Poiret One', cursive;
-    border-radius: 2rem;
-
+    background-color: #F8E8EE
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
 .form-button {
-	background: #F8E8EE;
-	color: black;
-	border: 1px solid #eee;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #eee;
-	text-shadow: none;
+    background: #F8E8EE;
+    color: black;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
-   margin-left: 8rem
-    
+    margin-left: 8rem
 }
 
 .form-button:hover {
-	background: #FDCEDF;
-	color: #fff;
-	border: 1px solid #eee;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #eee;
-	text-shadow: none;
+    background: #FDCEDF;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+}
+
+legend {
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+div {
+    width: fit-content;
+    margin: auto;
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.form__field {
+
+    border: 0;
+    outline: 0;
+    font-size: 1.3rem;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown~.form__label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+#tableauScore {
+    width: fit-content;
+    margin: auto;
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+select {
+    width: fit-content;
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#choiceMemory{
+   align-items: center;
+   font-weight: bold;
 }

@@ -39,23 +39,23 @@
 
         <div class="card">
 
-            <legend>Profil</legend><br><br>
+            <legend>Profil</legend><br>
 
             <div>
-                <label>User:</label><br>
-                <input type="text" id="username" readonly><br><br>
+                <label class="form__label">UniName:</label><br>
+                <input class="form__field"type="text" id="username" readonly><br><br>
             </div>
 
             <div>
-                <label>Mail :</label><br>
-                <input type="email" id="mail" readonly><br><br>
+                <label class="form__label">UniMail :</label><br>
+                <input class="form__field" type="email" id="mail" readonly><br><br>
             </div>
 
         </div>
         <table id="tableauScore">
             <tr>
                 <th>Score</th>
-                <th>Tant</th>
+                <th>Temps</th>
             </tr>
         </table>
         <select name="chooseMemory" id="choiceMemory" onchange="saveConfig(this)">

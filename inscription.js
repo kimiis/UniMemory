@@ -24,19 +24,32 @@ function init() {
   inputs.mail.addEventListener("input", verifierMail);
   inputs.mdpInfo.addEventListener("input", verifierMdp);
 
+
   loginForm = document.getElementById("subForm");
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
 
     let username = document.getElementById("user");
     let mail = document.getElementById("mail");
     let password = document.getElementById("mdpInfo");
 
+    // si mail deja utilisé
+    if (localStorage.getItem("mail") === mail) {
+      window.alert("t'es déjà une licorne")
+      document.location.href = "./login.html";
+    } return
+
+    if (username.value == localStorage.getItem("user")) {
+      window.alert("pseudo déjà pris")
+    }
+    //vérifier qu'il a tout remplie
+
     if (username.value == "" || password.value == "") {
-      alert("Ensure you input a value in both fields!");
+      alert("REMPLIS TOUTES LES INFOS J'AI DIT!");
     } else {
       // perform operation with form input
-      alert("This form has been successfully submitted!");
+      alert("~C'est bon t'es une licone maintenant~!");
       console.log(
         `This form has a username of ${username.value} and password of ${password.value}`
       );
@@ -45,7 +58,7 @@ function init() {
       localStorage.setItem("password", password.value)
       localStorage.setItem("scores", "")
       localStorage.setItem("temps", "")
-  
+
       username.value = "";
       password.value = "";
       mail.value = "";
@@ -103,8 +116,3 @@ function verifierMdp() {
     indicateur_fort.style.opacity = "0%";
   }
 }
-
-
-
-
-

@@ -1,13 +1,12 @@
-
 body {
-    background-image: url(Images_Memory/fond.jpg);
+    background-image: url(Images_Memory/licornelog.png);
 }
 
 #menu li {
     border: 0.1rem solid;
     border-radius: 0.6rem;
     display: inline-flex;
-    background-color: #F8E8EE;
+    background-color:#FDCEDF;
     padding: 0 7rem;
     margin: 0.5rem;
     font-family: 'Poiret One', cursive;
@@ -51,107 +50,124 @@ main section a {
 
 }
 
-.card {
+form {
 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 80rem;
-    grid-column: 1;
-    margin: auto;
-    font-family: 'Poiret One', cursive;
-    font-size: 2rem;
-
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-form{
-    background-color: aliceblue;
     width: auto;
     font-family: 'Poiret One', cursive;
     padding: 2rem;
     border-radius: 2rem;
     font-size: 2rem;
-   
+
+.form__field {
+
+        border: 0;
+        border-bottom: 1px solid;
+        outline: 0;
+        font-size: 1.3rem;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:placeholder-shown~.form__label {
+            font-size: 1.3rem;
+            cursor: text;
+            top: 20px;
+        }
+    }
 }
-form legend{
+
+form legend {
     font-size: 2rem;
     font-family: 'Poiret One', cursive;
     text-align: center;
- 
+
 }
-input{ 
+
+input {
+
     font-size: 1.5rem;
     font-family: 'Poiret One', cursive;
     font-weight: bold;
-    width: 30rem;
-    background-color:#F8E8EE
 
-}
-.card {
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 50rem;
-    grid-column: 1;
-    margin: auto;
-    font-family: 'Poiret One', cursive;
-    border-radius: 2rem;
-
+    background-color: #F8E8EE
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
 .form-button {
-	background: #F8E8EE;
-	color: black;
-	border: 1px solid #eee;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #eee;
-	text-shadow: none;
+    background: #e782a7;
+    color: black;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
-   margin-left: 8rem
-    
+    margin-left: 8rem
 }
 
 .form-button:hover {
-	background: #FDCEDF;
-	color: #fff;
-	border: 1px solid #eee;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #eee;
-	text-shadow: none;
+    background: #FDCEDF;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
 }
 
-.shaketonbooty{
+.shaketonbooty {
     animation: horizontal-shaking 1s;
 }
+
 @keyframes horizontal-shaking {
-    0% { transform: translateX(0) }
-    10% { transform: translateX(20px) }
-    20% { transform: translateX(-20px) }
-    30% { transform: translateX(20px) }
-    40% { transform: translateX(-20px) }
-    50% { transform: translateX(20px) }
-    60% { transform: translateX(-20px) }
-    70% { transform: translateX(20px) }
-    80% { transform: translateX(-20px) }
-    90% { transform: translateX(20px) }
-    100% { transform: translateX(-20px) }
+    0% {
+        transform: translateX(0)
+    }
+
+    10% {
+        transform: translateX(20px)
+    }
+
+    20% {
+        transform: translateX(-20px)
+    }
+
+    30% {
+        transform: translateX(20px)
+    }
+
+    40% {
+        transform: translateX(-20px)
+    }
+
+    50% {
+        transform: translateX(20px)
+    }
+
+    60% {
+        transform: translateX(-20px)
+    }
+
+    70% {
+        transform: translateX(20px)
+    }
+
+    80% {
+        transform: translateX(-20px)
+    }
+
+    90% {
+        transform: translateX(20px)
+    }
+
+    100% {
+        transform: translateX(-20px)
+    }
+}
+
+div {
+    width: fit-content;
+    margin: auto;
 }

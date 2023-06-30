@@ -23,7 +23,15 @@ let pileDeCarte = [];
 let compteurDeCoup = 0
 console.log(localStorage.getItem("config"));
 window.onload = init;
-let chrono 
+let chrono
+intervalChrono = setInterval(() => {
+
+    document.getElementById("timer").innerHTML = chrono
+
+    chrono += 1
+
+}, 1000);
+
 function init() {
     afficherTab();
     document.addEventListener("keypress", restartGame);
@@ -68,10 +76,7 @@ function afficherTab() {
     let AfficheurDeCoup = document.getElementById("compteur");
     AfficheurDeCoup.innerHTML = compteurDeCoup;
 
-    setInterval(() => {
-        document.getElementById("timer").innerHTML = chrono
-        chrono += 1
-    }, 1000);
+
 }
 
 function returnCard(card1, card2) {
@@ -116,9 +121,10 @@ function flipCard(event) {
             console.log(totalCard);
 
             if (totalCard == 0) {
-                localStorage.setItem("scores", localStorage.getItem("scores") + ";" +  compteurDeCoup)
-                localStorage.setItem("temps", localStorage.getItem("temps") + ";" +  chrono)
-                window.alert("Yay c'est fini")
+                localStorage.setItem("scores", localStorage.getItem("scores") + ";" + compteurDeCoup)
+                localStorage.setItem("temps", localStorage.getItem("temps") + ";" + chrono)
+                clearInterval(intervalChrono);
+                window.alert("Yay c'est fini!")
             }
 
         } else {
@@ -146,10 +152,14 @@ function shuffle(array) {
     }
     return array;
 }
-function restartGame(event) {
 
-    if (event.code == "Space") {
-        document.location.reload(true);
+document.addEventListener('keydown', function (event) {
+    if (event.Code === 32) {
+        restartGame();
     }
-};
+});
 
+function restartGame() {
+    init()
+    console.log("Allez on recommence biche! ");
+}
